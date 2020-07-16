@@ -1,0 +1,14 @@
+{
+  "name": "deneme",
+  "description": "",
+  "main": "",
+  "authors": [
+    "hopesf <gecin18@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/hopesf/deneme",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.8.0"
+  }
+}
