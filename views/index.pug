@@ -1,7 +1,6 @@
 extends layout
 
 append stylesheets
-  link(rel='stylesheet', href='/font-awesome/css/all.min.css' type="text/css")
   link(rel='stylesheet', href='/stylesheets/index.css' type="text/css")
 
 
@@ -14,10 +13,10 @@ block content
             span.panel-form-title
               | Hoşgeldin!
             a.button(href='#')
-              i.far.fa-facebook-square
+              i.facebook-icon
               |Facebook
             a.button(href='/auth/google')
-              i.fa.fa-google-plus
+              i.google-icon
               |Google
             .label
               span
@@ -28,7 +27,7 @@ block content
             .label
               span
                 | Şifre
-              a.txt2.asd(href='#', style='margin-left: 5px;')
+              a.txt2.b-c-r(href='#', style='margin-left: 5px;')
                 | unuttun mu?
             .wrap-input
               input.input(type='password', name='pass')
@@ -39,6 +38,6 @@ block content
             .register
               span.txt2
                 | üye değil misin?
-              a.txt2.asd(href='#')
+              a.txt2.b-c-r(href='#')
                 | Hemen üye ol
 
