@@ -2,6 +2,7 @@ extends layout
 
 append stylesheets
   link(rel='stylesheet', href='/stylesheets/index.css' type="text/css")
+  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
 
 
 block content
@@ -12,11 +13,11 @@ block content
           form.panel-form(method='post' action='/giris')
             span.panel-form-title
               | Hoşgeldin!
-            a.button(href='#')
-              i.facebook-icon
-              |Facebook
+            a.button(href='/auth/github')
+              i.fa.fa-github(style='font-size:20pt')
+              |Github
             a.button(href='/auth/google')
-              i.google-icon
+              i.fa.fa-google-plus(style='font-size:18pt')
               |Google
             .label
               span

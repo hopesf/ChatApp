@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
+// random id
+const crypto = require('crypto');
+
 // user tablo
-const User = require('../models/users');
+const user = require('../models/users');
 
 
 router.get('/', function(req, res, next) {
@@ -11,7 +14,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/giris',(req,res)=>{
   const { kadi,sifre }= req.body;
-  User.findOne({ kadi:kadi , sifre: sifre }, function (err,user){
+  user.findOne({ kadi:kadi , sifre: sifre }, function (err,user){
 
     if(err){
       return res.status(500).send();
@@ -31,17 +34,16 @@ router.post('/giris',(req,res)=>{
 router.post('/kayit', (req,res)=>{
 
   const { kadi,sifre }= req.body;
+  const id = crypto.randomBytes(16).toString("hex");
 
-  const newUser = User();
-  newUser.kadi = kadi;
-  newUser.sifre = sifre;
-  newUser.save( (err,user)=>{
-
-    if(err){
-      return res.status(500).send();
-    }
-
-    return res.status(200).send();
+  user.findOrCreate({
+    'kadi':kadi
+  }, {
+    Id:id,
+    sifre: sifre
+  }, (err, user) =>{
+    console.log(user);
+    return res.end();
   });
 
 });
