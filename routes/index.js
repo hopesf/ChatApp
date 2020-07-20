@@ -33,17 +33,16 @@ router.post('/giris',(req,res)=>{
 
 router.post('/kayit', (req,res)=>{
 
-  const { kadi,sifre }= req.body;
+  const { kayitk,kayits }= req.body;
   const id = crypto.randomBytes(16).toString("hex");
 
   user.findOrCreate({
-    'kadi':kadi
+    'kadi':kayitk
   }, {
     Id:id,
-    sifre: sifre
+    sifre: kayits
   }, (err, user) =>{
-    console.log(user);
-    return res.end();
+    return res.redirect('/');
   });
 
 });
