@@ -9,7 +9,7 @@ block content
     .ana
       .container-panel
         .wrap-panel
-          form.panel-form(method='post')
+          form.panel-form(method='post' action='/giris')
             span.panel-form-title
               | Hoşgeldin!
             a.button(href='#')
@@ -22,7 +22,7 @@ block content
               span
                 | Kullanıcı Adı
             .wrap-input
-              input.input(type='text', name='username')
+              input.input(type='text', name='kadi')
               span.focus-input
             .label
               span
@@ -30,7 +30,7 @@ block content
               a.txt2.b-c-r(href='#', style='margin-left: 5px;')
                 | unuttun mu?
             .wrap-input
-              input.input(type='password', name='pass')
+              input.input(type='password', name='sifre')
               span.focus-input
             .container-panel-form-button(style='margin-top: 17px')
               button.panel-form-button

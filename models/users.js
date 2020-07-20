@@ -10,6 +10,8 @@ const userSchema = new Schema({
     },
     name: String,
     surname: String,
+    kadi: String,
+    sifre: String,
     profilePhotoUrl: String
 });
 
