@@ -14,11 +14,40 @@ animateGiris();
 
 
 $('#uyelink').click(function(){
-    $(".giris").hide();
-    $(".kayit").show();
+
+    $(".giris").animate({
+        opacity: 0.25,
+        left: "+=50",
+        height: "toggle"
+    }, 500, function() {
+        $(".giris").hide();
+
+        $(".kayit").animate({
+            opacity: 1,
+            left: "+=50",
+            height: "toggle"
+        }, 500, function() {
+            $(".kayit").show();
+        });
+    });
 });
 
 $('#girislink').click(function(){
-    $(".giris").show();
-    $(".kayit").hide();
+
+    $(".kayit").animate({
+        opacity: 0.25,
+        left: "+=50",
+        height: "toggle"
+    }, 500, function() {
+        $(".kayit").hide();
+
+        $(".giris").animate({
+            opacity: 1,
+            left: "+=50",
+            height: "toggle"
+        }, 500, function() {
+            $(".giris").show();
+        });
+    });
+
 });
