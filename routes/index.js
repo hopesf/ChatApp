@@ -12,16 +12,14 @@ session({
   secret: process.env.SESSION_SECRET_KEY,
   resave: false,
   saveUninitialized: true,
-  cookie: { maxAge: 60000 }
+  cookie: { maxAge: 1000 * 3600 * 24 * 30 * 2 }
 });
 
 router.get('/', (req, res, next) => {
-  console.log(req.session);
   if (!req.session.user && !req.user)
     res.render('index', { title: 'Express' });
   else
     res.redirect('/chat');
-
 });
 
 router.post('/kayit', (req,res)=>{

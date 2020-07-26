@@ -5,7 +5,69 @@ append stylesheets
 
 block content
   div(ng-controller="chatController")
-    | selam chat
+    .wrapper
+      .container
+        .left
+          .top
+            input(type='text', placeholder='Search')
+            a.search(href='javascript:;')
+          ul.people
+            li.person
+              img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/382994/thomas.jpg', alt='')
+              span.name Thomas Bangalter
+              span.time 2:09 PM
+              span.preview I was wondering...
+            li.person
+              img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/382994/dog.png', alt='')
+              span.name Dog Woofson
+              span.time 1:44 PM
+              span.preview I've forgotten how it felt before
+            li.person
+              img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/382994/louis-ck.jpeg', alt='')
+              span.name Louis CK
+              span.time 2:09 PM
+              span.preview But we’re probably gonna need a new carpet.
+            li.person
+              img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/382994/bo-jackson.jpg', alt='')
+              span.name Bo Jackson
+              span.time 2:09 PM
+              span.preview It’s not that bad...
+            li.person
+              img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/382994/michael-jordan.jpg', alt='')
+              span.name Michael Jordan
+              span.time 2:09 PM
+              span.preview Wasup for the third time like is you blind bitch
+            li.person
+              img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/382994/drake.jpg', alt='')
+              span.name Drake
+              span.time 2:09 PM
+              span.preview howdoyoudoaspace
+        .right
+          .top
+            span
+              | To:
+              span.name Dog Woofson
+          .chat
+            .conversation-start
+              span Yesterday, 4:20 PM
+            .bubble.me
+              | Hey human!
+            .bubble.me
+              | Umm... Someone took a shit in the hallway.
+            .bubble.you
+              | ... what.
+            .bubble.you
+              | Are you serious?
+            .bubble.me
+              | I mean...
+            .bubble.me
+              | It’s not that bad...
+          .write
+            a.write-link.attach(href='javascript:;')
+            input(type='text')
+            a.write-link.smiley(href='javascript:;')
+            a.write-link.send(href='javascript:;')
+
 
 append javascripts
   script(src="/javascripts/controller/chatController.js")
