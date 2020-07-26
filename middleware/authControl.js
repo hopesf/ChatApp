@@ -1,5 +1,5 @@
 function authControl( req, res, next ) {
-    if(req.isAuthenticated()){
+    if(req.isAuthenticated() || req.session.user){
         next();
     }
     else{
