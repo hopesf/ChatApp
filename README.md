@@ -1,5 +1,9 @@
 # deneme
 # .ENV FILE
+
+DB_STRING = mongodb://localhost/chat
+SESSION_SECRET_KEY =
+
 GOOGLE_LOGIN_CLIENT_ID=          
 GOOGLE_LOGIN_SECRET_ID=        
 GOOGLE_LOGIN_CALLBACK_URL=
