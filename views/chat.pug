@@ -1,0 +1,12 @@
+extends layout
+
+append stylesheets
+  link(rel='stylesheet', href='/stylesheets/chat.css' type="text/css")
+
+block content
+  div(ng-controller="chatController")
+    | selam chat
+
+append javascripts
+  script(src="/javascripts/controller/chatController.js")
+

@@ -16,20 +16,14 @@ router.post('/giris',(req,res)=>{
   const { kadi,sifre }= req.body;
   user.findOne({ kadi:kadi , sifre: sifre }, function (err,user){
 
-    if(err){
-      return res.status(500).send();
-    }
-
     if(!user){
-      return res.status(404).send();
+      return res.send('Hatali giris');
     }
 
     return res.redirect('/chat');
 
   })
 });
-
-
 
 router.post('/kayit', (req,res)=>{
 
