@@ -1,11 +1,27 @@
 const express = require('express');
+const session = require('express-session');
 const router = express.Router();
 
 // random id
 const crypto = require('crypto');
 
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+// user tablo
+const user = require('../models/users');
+
+session({
+  secret: process.env.SESSION_SECRET_KEY,
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge: 60000 }
+});
+
+router.get('/', (req, res, next) => {
+  console.log(req.session);
+  if (!req.session.user && !req.user)
+    res.render('index', { title: 'Express' });
+  else
+    res.redirect('/chat');
+
 });
 
 router.post('/kayit', (req,res)=>{
@@ -23,5 +39,22 @@ router.post('/kayit', (req,res)=>{
   });
 
 });
+
+router.post('/giris',(req,res)=>{
+  const { kadi,sifre }= req.body;
+  user.findOne({ kadi:kadi , sifre: sifre }, function (err,user){
+
+    if(!user){
+      return res.send('Hatali giris');
+    }
+    else{
+      req.session.user = user;
+      console.log(req.session);
+      return res.redirect('/chat');
+    }
+
+  })
+});
+
 
 module.exports = router;
