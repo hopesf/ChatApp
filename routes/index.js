@@ -1,5 +1,4 @@
 const express = require('express');
-const session = require('express-session');
 const router = express.Router();
 
 // random id
@@ -7,13 +6,6 @@ const crypto = require('crypto');
 
 // user tablo
 const user = require('../models/users');
-
-session({
-  secret: process.env.SESSION_SECRET_KEY,
-  resave: false,
-  saveUninitialized: true,
-  cookie: { maxAge: 1000 * 3600 * 24 * 30 * 2 }
-});
 
 router.get('/', (req, res, next) => {
   if (!req.session.user && !req.user)
@@ -28,7 +20,7 @@ router.post('/kayit', (req,res)=>{
   const id = crypto.randomBytes(16).toString("hex");
 
   user.findOrCreate({
-    'kadi':kayitk
+    'name':kayitk
   }, {
     Id:id,
     sifre: kayits
@@ -40,7 +32,7 @@ router.post('/kayit', (req,res)=>{
 
 router.post('/giris',(req,res)=>{
   const { kadi,sifre }= req.body;
-  user.findOne({ kadi:kadi , sifre: sifre }, function (err,user){
+  user.findOne({ name:kadi , sifre: sifre }, function (err,user){
 
     if(!user){
       return res.send('Hatali giris');
